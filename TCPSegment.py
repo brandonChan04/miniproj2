@@ -13,14 +13,14 @@ from socket import *
 # Data payload
 class TCPSegment:
     def __init__(self, sourcePort, destPort, sequenceNum, ACKBit, ACKNum,
-                 SYNbit, FINbit, rwnd, data):
+                 SYNBit, FINBit, rwnd, data):
         self.sourcePort = sourcePort
         self.destPort = destPort
         self.sequenceNum = sequenceNum
         self.ACKBit = ACKBit
         self.ACKNum = ACKNum
-        self.SYNBit = SYNbit
-        self.FINbit = FINbit
+        self.SYNBit = SYNBit
+        self.FINbit = FINBit
         self.rwnd = rwnd
         self.data = data
 
