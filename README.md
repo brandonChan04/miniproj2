@@ -20,8 +20,8 @@ This class defines a TCP packet.
 - Sequence Number
 - ACKBit: `True` indicates this TCP segment is an ACK
 - ACKNumber: The sequence number of next expected byte, if this segment is an ACKBit
-- SYNbit: for connection management
-- FINbit: for closing a connection
+<!-- - SYNbit: for connection management
+- FINbit: for closing a connection -->
 - MAX Receive Window Size: The amount of space the receiver has available
 - Data payload
 

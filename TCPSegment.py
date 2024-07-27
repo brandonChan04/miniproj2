@@ -19,12 +19,39 @@ class TCPSegment:
         self.sequenceNum = sequenceNum
         self.ACKBit = ACKBit
         self.ACKNum = ACKNum
-
         self.SYNBit = SYNbit
         self.FINbit = FINbit
-
         self.rwnd = rwnd
-
         self.data = data
 
+        self.checksum = self.compute_checksum()
+
+    def compute_checksum(self):
+        checksum = 0
+
+        header_fields = [
+            self.sourcePort,
+            self.destPort,
+            self.sequenceNum,
+            self.ACKBit,
+            self.ACKNum,
+            self.SYNBit,
+            self.FINbit,
+            self.rwnd
+        ]
+
+        for item in header_fields:
+            if not item is None:
+                checksum += int(item)
         
+
+        # convert all chars in the 'data' string to their ASCII encoding
+        for c in self.data:
+            checksum += ord(c)
+        
+        return checksum
+    
+
+    def verify_checksum(self):
+        computed_sum = self.compute_checksum()
+        return computed_sum == self.checksum
