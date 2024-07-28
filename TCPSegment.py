@@ -20,7 +20,7 @@ class TCPSegment:
         self.ACKBit = ACKBit
         self.ACKNum = ACKNum
         self.SYNBit = SYNBit
-        self.FINbit = FINBit
+        self.FINBit = FINBit
         self.rwnd = rwnd
         self.data = data
 
@@ -36,7 +36,7 @@ class TCPSegment:
             self.ACKBit,
             self.ACKNum,
             self.SYNBit,
-            self.FINbit,
+            self.FINBit,
             self.rwnd
         ]
 
@@ -46,8 +46,9 @@ class TCPSegment:
         
 
         # convert all chars in the 'data' string to their ASCII encoding
-        for c in self.data:
-            checksum += ord(c)
+        if not self.data is None:
+            for c in self.data:
+                checksum += ord(c)
         
         return checksum
     
@@ -55,3 +56,18 @@ class TCPSegment:
     def verify_checksum(self):
         computed_sum = self.compute_checksum()
         return computed_sum == self.checksum
+    
+    def print_segment(self):
+        # for debugging purposes, print the contents of the segment
+        print("Displaying segment information:")
+        print(f'sourcePort: {self.sourcePort}')
+        print(f'destPort: {self.destPort}')
+        print(f'sequenceNum: {self.sequenceNum}')
+        print(f'ACKBit: {self.ACKBit}')
+        print(f'ACKNum: {self.ACKNum}')
+        print(f'SYNBit: {self.SYNBit}')
+        print(f'FINBit: {self.FINBit}')
+        print(f'rwnd: {self.rwnd}')
+        print(f'data: {self.data}')
+        print(f'checksum: {self.checksum}')
+    
