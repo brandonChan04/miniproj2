@@ -19,19 +19,23 @@ class Receiver:
 
     def receive(self):
         while True:
+            # Loop to capture incoming Segments
             try:
                 segment, sender_address = self.socket.recvfrom(1024)
                 decoded_segment = decode_segment(segment)
                 logging.debug(f"Received segment with seq # {decoded_segment.sequenceNum}")
 
                 if decoded_segment.verify_checksum():
+                    #Check for checksum
                     if decoded_segment.sequenceNum == self.expected_seq_num:
+                        #Check if segment is in the right order
                         self.received_data.append(decoded_segment.data)
                         self.expected_seq_num += 1
                         logging.debug(f"Segment {decoded_segment.sequenceNum} is correctly received and ACKed")
                     else:
                         logging.debug(f"Segment {decoded_segment.sequenceNum} is out of order, expected {self.expected_seq_num}")
 
+                    # Create ACK
                     ack_segment = Segment(
                         sourcePort=self.receiver_port,
                         destPort=decoded_segment.sourcePort,
@@ -44,7 +48,7 @@ class Receiver:
                         data=''
                     )
                     encoded_ack = encode_segment(ack_segment)
-                    self.socket.sendto(encoded_ack, sender_address)
+                    self.socket.sendto(encoded_ack, sender_address) # SEND ACK
                     logging.debug(f"Sent ACK for segment {self.expected_seq_num - 1}")
 
                 else:
@@ -55,10 +59,3 @@ class Receiver:
                 break
 
         self.socket.close()
-        logging.debug("Received data:")
-        for data in self.received_data:
-            logging.debug(data)
-
-if __name__ == "__main__":
-    receiver = Receiver()
-    receiver.receive()
