@@ -28,6 +28,38 @@ class Receiver:
                 decoded_segment = decode_segment(segment)
                 logging.debug(f"Received segment with seq # {decoded_segment.sequenceNum}")
 
+                # Check for SYN
+                if decoded_segment.SYNBit:
+                    logging.debug("Received a SYN")
+                    # send back a SYNACK and wait for ACK
+                    SYNACK = Segment(
+                        sourcePort=self.receiver_port,
+                        destPort=decoded_segment.sourcePort,
+                        sequenceNum=0,
+                        ACKBit=True,
+                        ACKNum=decoded_segment.sequenceNum+1,
+                        SYNBit=True,
+                        FINBit=False,
+                        rwnd=0,
+                        data=''
+                    )
+                    encoded = encode_segment(SYNACK)
+                    self.socket.sendto(encoded, sender_address)
+                    logging.debug("Sent SYNACK")
+
+                    receivedACK = False
+                    while not receivedACK:
+                        segment, sender_address = self.socket.recvfrom(1024)
+                        decoded_segment = decode_segment(segment)
+                        if decoded_segment.ACKBit and decoded_segment.ACKNum==1:
+                            logging.debug("Connection Established!")
+                            receivedACK=True
+                        
+                        else:
+                            logging.debug("Received garb while expecting ACK")
+                    
+                    continue
+
                 # Simulate corruption
                 if not decoded_segment.verify_checksum() or random.random() < self.corruption_prob:
                     logging.debug(f"Detected corruption in incoming packet with seq Number {decoded_segment.sequenceNum}")

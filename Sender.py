@@ -57,7 +57,7 @@ class Sender:
                     logging.debug("Received garb response to SYN")
                     continue
 
-                if ack_segment.ACKNum == self.sequenceNum:
+                if ack_segment.ACKNum == self.sequenceNum+1:
                     logging.debug("Reveiced SYNACK")
                     SYN_ACKed = True
                     self.sequenceNum += 1      
@@ -83,24 +83,28 @@ class Sender:
             self.socket.sendto(encoded, (self.receiver_ip, self.receiver_port)) 
 
         # ACK the establishment 
+        logging.debug("Connection established on sender side. sending ACK")
         ACK_Segment = Segment(
             sourcePort=self.source_port,
             destPort=self.receiver_port,
             sequenceNum=self.sequenceNum,
             ACKBit=True,
-            ACKNum=receiverSeqNum,
+            ACKNum=receiverSeqNum+1,
             SYNBit=False,
             FINBit=False,
             rwnd=0,
             data=None
         )
 
-        encoded = encode_segment(SYN_Segment)
+        encoded = encode_segment(ACK_Segment)
         self.socket.sendto(encoded, (self.receiver_ip, self.receiver_port))
+
+        self.sequenceNum = 0
 
 
 
     def send(self, data):
+        self.establish_connection()
         # create a buffer on the sending side, containing partitioned data
         # each partition should be at most MSS chars
         data_buffer = [data[i:i + self.MSS] for i in range(0, len(data), self.MSS)]
