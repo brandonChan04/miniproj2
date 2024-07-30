@@ -1,7 +1,10 @@
 import logging
 from socket import *
+import random
 
-# TCP Segment Class
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
+
+# Segment Class
 # Source port #
 # Destination port #
 # Sequence Number
@@ -49,7 +52,7 @@ class Segment:
         if not self.data is None:
             for c in self.data:
                 checksum += ord(c)
-        
+                
         return checksum
     
 
