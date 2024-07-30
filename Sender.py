@@ -195,17 +195,17 @@ class Sender:
 
                     # # Temporary: simulate reception of ACKs
                     # if next_seq_num == 0:
-                    #     ack_segment = Segment(
-                    #         sourcePort=self.source_port,
-                    #         destPort=self.receiver_port,
-                    #         sequenceNum=next_seq_num,
-                    #         ACKBit=True,
-                    #         ACKNum=next_seq_num,
-                    #         SYNBit=False,
-                    #         FINBit=False,
-                    #         rwnd=0,
-                    #         data=data
-                    #     )
+                        # ack_segment = Segment(
+                        #     sourcePort=self.source_port,
+                        #     destPort=self.receiver_port,
+                        #     sequenceNum=next_seq_num,
+                        #     ACKBit=True,
+                        #     ACKNum=next_seq_num,
+                        #     SYNBit=False,
+                        #     FINBit=False,
+                        #     rwnd=0,
+                        #     data=data
+                        # )
                     
                     # else:
                     #     ack_packet, _ = self.socket.recvfrom(1024)
@@ -236,3 +236,19 @@ class Sender:
             except timeout:
                 window_size = max(1, window_size // 2)
                 logging.debug(f"Timeout occurred, setting window size to {window_size}")
+        
+        # Send a FIN bit
+        FIN = Segment(
+            sourcePort=self.source_port,
+            destPort=self.receiver_port,
+            sequenceNum=None,
+            ACKBit=False,
+            ACKNum=None,
+            SYNBit=False,
+            FINBit=True,
+            rwnd=0,
+            data=data
+        )
+        encoded = encode_segment(FIN)
+        self.socket.sendto(encoded, (self.receiver_ip, self.receiver_port))
+        logging.debug("Transfer finished, sending FIN")

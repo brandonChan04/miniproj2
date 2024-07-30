@@ -59,6 +59,14 @@ class Receiver:
                             logging.debug("Received garb while expecting ACK")
                     
                     continue
+                    
+                # Check for FIN
+                if decoded_segment.FINBit:
+                    # Set all loop values to defaults
+                    logging.debug(f"Received FINBit. Final data received: {self.received_data}")
+                    self.received_data = []
+                    self.expected_seq_num = 0
+                    continue
 
                 # Simulate corruption
                 if not decoded_segment.verify_checksum() or random.random() < self.corruption_prob:
