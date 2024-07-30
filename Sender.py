@@ -27,6 +27,79 @@ class Sender:
         self.corruption_prob = corruption_prob
         logging.debug(f"Created a Sender to destination ({receiver_ip} {receiver_port})")
 
+        self.sequenceNum = 0
+
+    def establish_connection(self):
+        # Establish connection with receiver before sending
+        logging.debug("Attempting to establish connection, sending SYN")
+        SYN_Segment = Segment(
+            sourcePort=self.source_port,
+            destPort=self.receiver_port,
+            sequenceNum=self.sequenceNum,
+            ACKBit=False,
+            ACKNum=None,
+            SYNBit=True,
+            FINBit=False,
+            rwnd=0,
+            data=None
+        )
+
+        encoded = encode_segment(SYN_Segment)
+        self.socket.sendto(encoded, (self.receiver_ip, self.receiver_port))
+
+        try:
+            SYN_ACKed = False
+            while not SYN_ACKed:
+                ack_packet, _ = self.socket.recvfrom(1024)
+                ack_segment = decode_segment(ack_packet)
+                # ascertain it is a SYNACK
+                if not (ack_segment.SYNBit and ack_segment.ACKBit):
+                    logging.debug("Received garb response to SYN")
+                    continue
+
+                if ack_segment.ACKNum == self.sequenceNum:
+                    logging.debug("Reveiced SYNACK")
+                    SYN_ACKed = True
+                    self.sequenceNum += 1      
+                    receiverSeqNum = ack_segment.sequenceNum
+
+                else:
+                    logging.debug("ACKed a garb sequence number")              
+            
+        except timeout:
+            SYN_Segment = Segment(
+                sourcePort=self.source_port,
+                destPort=self.receiver_port,
+                sequenceNum=self.sequenceNum,
+                ACKBit=False,
+                ACKNum=None,
+                SYNBit=True,
+                FINBit=False,
+                rwnd=0,
+                data=None
+            )
+
+            encoded = encode_segment(SYN_Segment)
+            self.socket.sendto(encoded, (self.receiver_ip, self.receiver_port)) 
+
+        # ACK the establishment 
+        ACK_Segment = Segment(
+            sourcePort=self.source_port,
+            destPort=self.receiver_port,
+            sequenceNum=self.sequenceNum,
+            ACKBit=True,
+            ACKNum=receiverSeqNum,
+            SYNBit=False,
+            FINBit=False,
+            rwnd=0,
+            data=None
+        )
+
+        encoded = encode_segment(SYN_Segment)
+        self.socket.sendto(encoded, (self.receiver_ip, self.receiver_port))
+
+
+
     def send(self, data):
         # create a buffer on the sending side, containing partitioned data
         # each partition should be at most MSS chars
@@ -35,14 +108,12 @@ class Sender:
         base = 0
         window_size = 1
 
-        # next_seq_num is the
-        next_seq_num = 0
 
         # Track which packets have been ACKed
         ack_received = [False]*len(data_buffer)
         # print(ack_received)
 
-        next_expected_ACK = 1
+        next_expected_ACK = self.sequenceNum + 1
 
         # assume connection is established and receiver is listening on port self.receiver_port
         while base < len(data_buffer):
@@ -71,7 +142,7 @@ class Sender:
                 Segment(
                     sourcePort=self.source_port,
                     destPort=self.receiver_port,
-                    sequenceNum=next_seq_num + i,
+                    sequenceNum=self.sequenceNum + i,
                     ACKBit=False,
                     ACKNum=None,
                     SYNBit=False,
@@ -151,7 +222,7 @@ class Sender:
                                 ack_received[next_expected_ACK-1] = True
                                 base += 1
                                 next_expected_ACK += 1
-                                next_seq_num += 1
+                                self.sequenceNum += 1
 
                         # logging.debug(f"Checkintg received {idx_of_last_packet}")
                         if ack_received[idx_of_last_packet]:
