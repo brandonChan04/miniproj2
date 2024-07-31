@@ -1,0 +1,328 @@
+2024-07-30 23:19:44,667 DEBUG: Created a Sender to destination (localhost 2000)
+2024-07-30 23:19:44,667 DEBUG: Attempting to establish connection, sending SYN
+2024-07-30 23:19:44,668 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 0
+ACKBit: False
+ACKNum: None
+SYNBit: True
+FINBit: False
+rwnd: 5
+data: None
+checksum: 39072
+
+2024-07-30 23:19:44,669 DEBUG: Reveiced SYNACK
+2024-07-30 23:19:44,669 DEBUG: Connection established on sender side. sending ACK
+2024-07-30 23:19:44,670 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 1
+ACKBit: True
+ACKNum: 1
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: None
+checksum: 39074
+
+2024-07-30 23:19:44,670 DEBUG: Sending string of length 110, split into 11 segments
+2024-07-30 23:19:44,670 DEBUG: Created window ['AAAAAAAAAA']
+2024-07-30 23:19:44,671 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 0
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: AAAAAAAAAA
+checksum: 39721
+
+2024-07-30 23:19:44,672 DEBUG: Sent packet with seq # 0
+2024-07-30 23:19:44,672 DEBUG: Received ACK for segment number 0
+2024-07-30 23:19:44,673 DEBUG: Increasing window size to the smaller of: 2, receiver_buffer: 5
+2024-07-30 23:19:44,673 DEBUG: Created window ['BBBBBBBBBB', 'CCCCCCCCCC']
+2024-07-30 23:19:44,674 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 1
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: BBBBBBBBBB
+checksum: 39732
+
+2024-07-30 23:19:44,675 DEBUG: Sent packet with seq # 1
+2024-07-30 23:19:44,676 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 2
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: CCCCCCCCCC
+checksum: 39743
+
+2024-07-30 23:19:44,676 DEBUG: Sent packet with seq # 2
+2024-07-30 23:19:44,676 DEBUG: Received ACK for segment number 1
+2024-07-30 23:19:44,677 DEBUG: Received ACK for segment number 2
+2024-07-30 23:19:44,677 DEBUG: Increasing window size to the smaller of: 3, receiver_buffer: 5
+2024-07-30 23:19:44,677 DEBUG: Created window ['DDDDDDDDDD', 'EEEEEEEEEE', 'FFFFFFFFFF']
+2024-07-30 23:19:44,678 DEBUG: Packet with sequence # 3 was LOST!
+2024-07-30 23:19:44,679 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 4
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: EEEEEEEEEE
+checksum: 39765
+
+2024-07-30 23:19:44,679 DEBUG: Sent packet with seq # 4
+2024-07-30 23:19:44,679 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 5
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: FFFFFFFFFF
+checksum: 39776
+
+2024-07-30 23:19:44,680 DEBUG: Sent packet with seq # 5
+2024-07-30 23:19:44,680 DEBUG: Received ACK for segment number 2
+2024-07-30 23:19:45,681 DEBUG: Timeout occurred, setting window size to 1
+2024-07-30 23:19:45,682 DEBUG: Created window ['DDDDDDDDDD']
+2024-07-30 23:19:45,682 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 3
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: DDDDDDDDDD
+checksum: 39754
+
+2024-07-30 23:19:45,683 DEBUG: Sent packet with seq # 3
+2024-07-30 23:19:45,683 DEBUG: Received ACK for segment number 3
+2024-07-30 23:19:45,684 DEBUG: Increasing window size to the smaller of: 2, receiver_buffer: 5
+2024-07-30 23:19:45,684 DEBUG: Created window ['EEEEEEEEEE', 'FFFFFFFFFF']
+2024-07-30 23:19:45,685 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 4
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: EEEEEEEEEE
+checksum: 39765
+
+2024-07-30 23:19:45,685 DEBUG: Sent packet with seq # 4
+2024-07-30 23:19:45,686 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 5
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: FFFFFFFFFF
+checksum: 39776
+
+2024-07-30 23:19:45,686 DEBUG: Sent packet with seq # 5
+2024-07-30 23:19:45,687 DEBUG: Detected corruption in incoming packet, discarding
+2024-07-30 23:19:46,689 DEBUG: Timeout occurred, setting window size to 1
+2024-07-30 23:19:46,689 DEBUG: Created window ['EEEEEEEEEE']
+2024-07-30 23:19:46,690 DEBUG: Packet with sequence # 4 was LOST!
+2024-07-30 23:19:47,691 DEBUG: Timeout occurred, setting window size to 1
+2024-07-30 23:19:47,692 DEBUG: Created window ['EEEEEEEEEE']
+2024-07-30 23:19:47,693 DEBUG: Packet with sequence # 4 was LOST!
+2024-07-30 23:19:48,694 DEBUG: Timeout occurred, setting window size to 1
+2024-07-30 23:19:48,695 DEBUG: Created window ['EEEEEEEEEE']
+2024-07-30 23:19:48,695 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 4
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: EEEEEEEEEE
+checksum: 39765
+
+2024-07-30 23:19:48,696 DEBUG: Sent packet with seq # 4
+2024-07-30 23:19:48,696 DEBUG: Received ACK for segment number 4
+2024-07-30 23:19:48,697 DEBUG: Increasing window size to the smaller of: 2, receiver_buffer: 5
+2024-07-30 23:19:48,698 DEBUG: Created window ['FFFFFFFFFF', 'GGGGGGGGGG']
+2024-07-30 23:19:48,699 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 5
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: FFFFFFFFFF
+checksum: 39776
+
+2024-07-30 23:19:48,699 DEBUG: Sent packet with seq # 5
+2024-07-30 23:19:48,700 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 6
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: GGGGGGGGGG
+checksum: 39787
+
+2024-07-30 23:19:48,701 DEBUG: Sent packet with seq # 6
+2024-07-30 23:19:48,701 DEBUG: Received ACK for segment number 5
+2024-07-30 23:19:49,703 DEBUG: Timeout occurred, setting window size to 1
+2024-07-30 23:19:49,704 DEBUG: Created window ['GGGGGGGGGG']
+2024-07-30 23:19:49,704 DEBUG: Packet with sequence # 6 was LOST!
+2024-07-30 23:19:50,705 DEBUG: Timeout occurred, setting window size to 1
+2024-07-30 23:19:50,706 DEBUG: Created window ['GGGGGGGGGG']
+2024-07-30 23:19:50,707 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 6
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: GGGGGGGGGG
+checksum: 39787
+
+2024-07-30 23:19:50,707 DEBUG: Sent packet with seq # 6
+2024-07-30 23:19:50,709 DEBUG: Received ACK for segment number 6
+2024-07-30 23:19:50,710 DEBUG: Increasing window size to the smaller of: 2, receiver_buffer: 5
+2024-07-30 23:19:50,710 DEBUG: Created window ['HHHHHHHHHH', 'IIIIIIIIII']
+2024-07-30 23:19:50,711 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 7
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: HHHHHHHHHH
+checksum: 39798
+
+2024-07-30 23:19:50,712 DEBUG: Sent packet with seq # 7
+2024-07-30 23:19:50,713 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 8
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: IIIIIIIIII
+checksum: 39809
+
+2024-07-30 23:19:50,714 DEBUG: Sent packet with seq # 8
+2024-07-30 23:19:50,714 DEBUG: Detected corruption in incoming packet, discarding
+2024-07-30 23:19:50,715 DEBUG: Detected corruption in incoming packet, discarding
+2024-07-30 23:19:51,717 DEBUG: Timeout occurred, setting window size to 1
+2024-07-30 23:19:51,717 DEBUG: Created window ['HHHHHHHHHH']
+2024-07-30 23:19:51,718 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 7
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: HHHHHHHHHH
+checksum: 39798
+
+2024-07-30 23:19:51,719 DEBUG: Sent packet with seq # 7
+2024-07-30 23:19:51,719 DEBUG: Received ACK for segment number 8
+2024-07-30 23:19:51,720 DEBUG: Increasing window size to the smaller of: 2, receiver_buffer: 5
+2024-07-30 23:19:51,720 DEBUG: Created window ['JJJJJJJJJJ', 'KKKKKKKKKK']
+2024-07-30 23:19:51,721 DEBUG: Packet with sequence # 9 was LOST!
+2024-07-30 23:19:51,722 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 10
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: KKKKKKKKKK
+checksum: 39831
+
+2024-07-30 23:19:51,723 DEBUG: Sent packet with seq # 10
+2024-07-30 23:19:51,724 DEBUG: Received ACK for segment number 8
+2024-07-30 23:19:52,725 DEBUG: Timeout occurred, setting window size to 1
+2024-07-30 23:19:52,726 DEBUG: Created window ['JJJJJJJJJJ']
+2024-07-30 23:19:52,727 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 9
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: JJJJJJJJJJ
+checksum: 39820
+
+2024-07-30 23:19:52,727 DEBUG: Sent packet with seq # 9
+2024-07-30 23:19:52,728 DEBUG: Received ACK for segment number 9
+2024-07-30 23:19:52,729 DEBUG: Increasing window size to the smaller of: 2, receiver_buffer: 5
+2024-07-30 23:19:52,729 DEBUG: Created window ['KKKKKKKKKK']
+2024-07-30 23:19:52,730 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 10
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: KKKKKKKKKK
+checksum: 39831
+
+2024-07-30 23:19:52,730 DEBUG: Sent packet with seq # 10
+2024-07-30 23:19:52,731 DEBUG: Received ACK for segment number 10
+2024-07-30 23:19:52,732 DEBUG: Increasing window size to the smaller of: 3, receiver_buffer: 5
+2024-07-30 23:19:52,733 INFO: Sent a packet:
+sourcePort: 37066
+destPort: 2000
+sequenceNum: 11
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: True
+rwnd: 5
+data: None
+checksum: 39083
+
+2024-07-30 23:19:52,733 DEBUG: Transfer finished, sending FIN

@@ -1,0 +1,252 @@
+2024-07-30 23:19:40,072 DEBUG: Receiver listening on port 2000
+2024-07-30 23:19:44,668 DEBUG: Received segment with seq # 0
+2024-07-30 23:19:44,668 DEBUG: Received a SYN
+2024-07-30 23:19:44,668 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 1
+SYNBit: True
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39074
+
+2024-07-30 23:19:44,668 DEBUG: Sent SYNACK
+2024-07-30 23:19:44,670 DEBUG: Connection Established!
+2024-07-30 23:19:44,671 DEBUG: Received segment with seq # 0
+2024-07-30 23:19:44,671 DEBUG: Segment 0 is correctly received and ACKed
+2024-07-30 23:19:44,671 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 1
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39073
+
+2024-07-30 23:19:44,671 DEBUG: Sent ACK for segment 0
+2024-07-30 23:19:44,674 DEBUG: Received segment with seq # 1
+2024-07-30 23:19:44,675 DEBUG: Segment 1 is correctly received and ACKed
+2024-07-30 23:19:44,675 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 2
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39074
+
+2024-07-30 23:19:44,675 DEBUG: Sent ACK for segment 1
+2024-07-30 23:19:44,676 DEBUG: Received segment with seq # 2
+2024-07-30 23:19:44,676 DEBUG: Segment 2 is correctly received and ACKed
+2024-07-30 23:19:44,676 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 3
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39075
+
+2024-07-30 23:19:44,676 DEBUG: Sent ACK for segment 2
+2024-07-30 23:19:44,678 DEBUG: Received segment with seq # 4
+2024-07-30 23:19:44,678 DEBUG: Segment 4 is out of order, expected 3
+2024-07-30 23:19:44,678 DEBUG: ACK for segment 2 was randomly LOST
+2024-07-30 23:19:44,679 DEBUG: Received segment with seq # 5
+2024-07-30 23:19:44,679 DEBUG: Segment 5 is out of order, expected 3
+2024-07-30 23:19:44,679 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 3
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39075
+
+2024-07-30 23:19:44,679 DEBUG: Sent ACK for segment 2
+2024-07-30 23:19:45,682 DEBUG: Received segment with seq # 3
+2024-07-30 23:19:45,682 DEBUG: Segment 3 is correctly received and ACKed
+2024-07-30 23:19:45,682 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 4
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39076
+
+2024-07-30 23:19:45,682 DEBUG: Sent ACK for segment 3
+2024-07-30 23:19:45,685 DEBUG: Received segment with seq # 4
+2024-07-30 23:19:45,685 DEBUG: Detected corruption in incoming packet with seq Number 4
+2024-07-30 23:19:45,686 DEBUG: Received segment with seq # 5
+2024-07-30 23:19:45,686 DEBUG: Segment 5 is out of order, expected 4
+2024-07-30 23:19:45,686 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 4
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39076
+
+2024-07-30 23:19:45,686 DEBUG: Sent ACK for segment 3
+2024-07-30 23:19:48,695 DEBUG: Received segment with seq # 4
+2024-07-30 23:19:48,695 DEBUG: Segment 4 is correctly received and ACKed
+2024-07-30 23:19:48,696 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 5
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39077
+
+2024-07-30 23:19:48,696 DEBUG: Sent ACK for segment 4
+2024-07-30 23:19:48,699 DEBUG: Received segment with seq # 5
+2024-07-30 23:19:48,699 DEBUG: Segment 5 is correctly received and ACKed
+2024-07-30 23:19:48,699 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 6
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39078
+
+2024-07-30 23:19:48,699 DEBUG: Sent ACK for segment 5
+2024-07-30 23:19:48,700 DEBUG: Received segment with seq # 6
+2024-07-30 23:19:48,700 DEBUG: Detected corruption in incoming packet with seq Number 6
+2024-07-30 23:19:50,707 DEBUG: Received segment with seq # 6
+2024-07-30 23:19:50,707 DEBUG: Segment 6 is correctly received and ACKed
+2024-07-30 23:19:50,707 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 7
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39079
+
+2024-07-30 23:19:50,707 DEBUG: Sent ACK for segment 6
+2024-07-30 23:19:50,711 DEBUG: Received segment with seq # 7
+2024-07-30 23:19:50,712 DEBUG: Segment 7 is correctly received and ACKed
+2024-07-30 23:19:50,712 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 8
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39080
+
+2024-07-30 23:19:50,712 DEBUG: Sent ACK for segment 7
+2024-07-30 23:19:50,713 DEBUG: Received segment with seq # 8
+2024-07-30 23:19:50,713 DEBUG: Segment 8 is correctly received and ACKed
+2024-07-30 23:19:50,713 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 9
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39081
+
+2024-07-30 23:19:50,713 DEBUG: Sent ACK for segment 8
+2024-07-30 23:19:51,718 DEBUG: Received segment with seq # 7
+2024-07-30 23:19:51,718 DEBUG: Segment 7 is out of order, expected 9
+2024-07-30 23:19:51,718 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 9
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39081
+
+2024-07-30 23:19:51,718 DEBUG: Sent ACK for segment 8
+2024-07-30 23:19:51,722 DEBUG: Received segment with seq # 10
+2024-07-30 23:19:51,722 DEBUG: Segment 10 is out of order, expected 9
+2024-07-30 23:19:51,723 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 9
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39081
+
+2024-07-30 23:19:51,723 DEBUG: Sent ACK for segment 8
+2024-07-30 23:19:52,727 DEBUG: Received segment with seq # 9
+2024-07-30 23:19:52,727 DEBUG: Segment 9 is correctly received and ACKed
+2024-07-30 23:19:52,727 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 10
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39082
+
+2024-07-30 23:19:52,727 DEBUG: Sent ACK for segment 9
+2024-07-30 23:19:52,730 DEBUG: Received segment with seq # 10
+2024-07-30 23:19:52,730 DEBUG: Segment 10 is correctly received and ACKed
+2024-07-30 23:19:52,730 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 37066
+sequenceNum: 0
+ACKBit: True
+ACKNum: 11
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 39083
+
+2024-07-30 23:19:52,730 DEBUG: Sent ACK for segment 10
+2024-07-30 23:19:52,733 DEBUG: Received segment with seq # 11
+2024-07-30 23:19:52,733 DEBUG: Received FINBit. Final data received: ['AAAAAAAAAA', 'BBBBBBBBBB', 'CCCCCCCCCC', 'DDDDDDDDDD', 'EEEEEEEEEE', 'FFFFFFFFFF', 'GGGGGGGGGG', 'HHHHHHHHHH', 'IIIIIIIIII', 'JJJJJJJJJJ', 'KKKKKKKKKK']
+Connection Closed. Final String Received: AAAAAAAAAABBBBBBBBBBCCCCCCCCCCDDDDDDDDDDEEEEEEEEEEFFFFFFFFFFGGGGGGGGGGHHHHHHHHHHIIIIIIIIIIJJJJJJJJJJKKKKKKKKKK
