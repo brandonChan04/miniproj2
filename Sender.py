@@ -5,7 +5,9 @@ from utils import *
 import logging
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
-logging.getLogger().setLevel(logging.INFO)
+
+# UNCOMMENT THIS LINE TO ONLY SEE PACKET SEND INFO
+# logging.getLogger().setLevel(logging.INFO)
 
 # Sender Class
 class Sender:

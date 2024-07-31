@@ -6,7 +6,8 @@ import random
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
 
-logging.getLogger().setLevel(logging.INFO)
+# UNCOMMENT THIS LINE TO ONLY SEE PACKET SEND INFO
+# logging.getLogger().setLevel(logging.INFO)
 
 class Receiver:
     def __init__(self, receiver_port=2000, MSS=10, loss_prob=0.1, corruption_prob=0.1, buffer_size = 5):
@@ -121,5 +122,5 @@ class Receiver:
         self.socket.close()
 
 if __name__ == '__main__':
-    receiver = Receiver(loss_prob=0, corruption_prob=0, buffer_size=5)
+    receiver = Receiver(loss_prob=0.1, corruption_prob=0.1, buffer_size=5)
     receiver.receive()
