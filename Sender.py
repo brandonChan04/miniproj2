@@ -11,13 +11,15 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(me
 
 # Sender Class
 class Sender:
-    def __init__(self, receiver_ip, receiver_port=2000, MSS=10, loss_prob=0.1, corruption_prob=0.1):
+    def __init__(self, receiver_ip, receiver_port=2000, MSS=10, loss_prob=0.1, corruption_prob=0.1, buffer_size=5):
         self.receiver_ip = receiver_ip
         self.receiver_port = receiver_port
 
         # MSS defines the max. segment size (in chars)
         self.MSS = MSS
         
+        self.buffer_size=buffer_size
+
         # We use SOCK.DGRAM (UDP) because TCP already implements RDT, pipelining, etc
         self.socket = socket(AF_INET, SOCK_DGRAM)
         self.socket.bind(('', 0)) # Bind to any available port
@@ -43,7 +45,7 @@ class Sender:
             ACKNum=None,
             SYNBit=True,
             FINBit=False,
-            rwnd=0,
+            rwnd=self.buffer_size,
             data=None
         )
 
@@ -79,7 +81,7 @@ class Sender:
                     ACKNum=None,
                     SYNBit=True,
                     FINBit=False,
-                    rwnd=0,
+                    rwnd=self.buffer_size,
                     data=None
                 )
 
@@ -98,7 +100,7 @@ class Sender:
             ACKNum=receiverSeqNum+1,
             SYNBit=False,
             FINBit=False,
-            rwnd=0,
+            rwnd=self.buffer_size,
             data=None
         )
 
@@ -158,7 +160,7 @@ class Sender:
                     ACKNum=None,
                     SYNBit=False,
                     FINBit=False,
-                    rwnd=0,
+                    rwnd=self.buffer_size,
                     data=data
                 )
                 for i, data in enumerate(window)
@@ -211,7 +213,7 @@ class Sender:
                         #     ACKNum=next_seq_num,
                         #     SYNBit=False,
                         #     FINBit=False,
-                        #     rwnd=0,
+                        #     rwnd=self.buffer_size,
                         #     data=data
                         # )
                     
@@ -255,7 +257,7 @@ class Sender:
             ACKNum=None,
             SYNBit=False,
             FINBit=True,
-            rwnd=0,
+            rwnd=self.buffer_size,
             data=None
         )
         encoded = encode_segment(FIN)

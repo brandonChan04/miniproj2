@@ -44,7 +44,7 @@ class Receiver:
                         ACKNum=decoded_segment.sequenceNum+1,
                         SYNBit=True,
                         FINBit=False,
-                        rwnd=0,
+                        rwnd=self.buffer_size,
                         data=''
                     )
                     encoded = encode_segment(SYNACK)
