@@ -115,5 +115,5 @@ class Receiver:
         self.socket.close()
 
 if __name__ == '__main__':
-    receiver = Receiver(loss_prob=0.1)
+    receiver = Receiver()
     receiver.receive()

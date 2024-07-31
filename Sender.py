@@ -47,9 +47,9 @@ class Sender:
         encoded = encode_segment(SYN_Segment)
         self.socket.sendto(encoded, (self.receiver_ip, self.receiver_port))
 
-        try:
-            SYN_ACKed = False
-            while not SYN_ACKed:
+        SYN_ACKed = False
+        while not SYN_ACKed:
+            try:
                 ack_packet, _ = self.socket.recvfrom(1024)
                 ack_segment = decode_segment(ack_packet)
                 # ascertain it is a SYNACK
@@ -66,21 +66,22 @@ class Sender:
                 else:
                     logging.debug("ACKed a garb sequence number")              
             
-        except timeout:
-            SYN_Segment = Segment(
-                sourcePort=self.source_port,
-                destPort=self.receiver_port,
-                sequenceNum=self.sequenceNum,
-                ACKBit=False,
-                ACKNum=None,
-                SYNBit=True,
-                FINBit=False,
-                rwnd=0,
-                data=None
-            )
+            except timeout:
+                SYN_Segment = Segment(
+                    sourcePort=self.source_port,
+                    destPort=self.receiver_port,
+                    sequenceNum=self.sequenceNum,
+                    ACKBit=False,
+                    ACKNum=None,
+                    SYNBit=True,
+                    FINBit=False,
+                    rwnd=0,
+                    data=None
+                )
 
-            encoded = encode_segment(SYN_Segment)
-            self.socket.sendto(encoded, (self.receiver_ip, self.receiver_port)) 
+                encoded = encode_segment(SYN_Segment)
+                self.socket.sendto(encoded, (self.receiver_ip, self.receiver_port)) 
+                logging.debug("SYN Timed out. sending again.")
 
         # ACK the establishment 
         logging.debug("Connection established on sender side. sending ACK")
@@ -241,7 +242,7 @@ class Sender:
         FIN = Segment(
             sourcePort=self.source_port,
             destPort=self.receiver_port,
-            sequenceNum=None,
+            sequenceNum=self.sequenceNum,
             ACKBit=False,
             ACKNum=None,
             SYNBit=False,
