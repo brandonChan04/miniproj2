@@ -50,3 +50,7 @@ During connection establishment, the receiver responds to a SYN segment with a S
 To simulate network conditions, the receiver introduces random packet loss and corruption. If a segment is detected as corrupt or a random condition triggers loss, the segment is discarded. Otherwise, the receiver processes the segment and sends the appropriate acknowledgment. When a FIN segment is received, indicating the end of transmission, the receiver resets its state and prepares for a new connection.
 
 The receiver class runs until interrupted, at which point it closes the socket and stops listening for incoming segments.
+
+# Testing
+
+We conducted testing through a Jupiter notebook test.ipynb 
