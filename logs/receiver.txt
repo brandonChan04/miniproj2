@@ -1,0 +1,145 @@
+2024-07-30 22:55:46,658 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 54999
+sequenceNum: 0
+ACKBit: True
+ACKNum: 1
+SYNBit: True
+FINBit: False
+rwnd: 0
+data: 
+checksum: 57002
+
+2024-07-30 22:55:46,659 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 54999
+sequenceNum: 0
+ACKBit: True
+ACKNum: 1
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 57006
+
+2024-07-30 22:55:46,660 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 54999
+sequenceNum: 0
+ACKBit: True
+ACKNum: 2
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 57007
+
+2024-07-30 22:55:46,661 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 54999
+sequenceNum: 0
+ACKBit: True
+ACKNum: 3
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 57008
+
+2024-07-30 22:55:46,661 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 54999
+sequenceNum: 0
+ACKBit: True
+ACKNum: 4
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 57009
+
+2024-07-30 22:55:46,662 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 54999
+sequenceNum: 0
+ACKBit: True
+ACKNum: 5
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 57010
+
+2024-07-30 22:55:46,662 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 54999
+sequenceNum: 0
+ACKBit: True
+ACKNum: 6
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 57011
+
+2024-07-30 22:55:46,663 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 54999
+sequenceNum: 0
+ACKBit: True
+ACKNum: 7
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 57012
+
+2024-07-30 22:55:46,663 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 54999
+sequenceNum: 0
+ACKBit: True
+ACKNum: 8
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 57013
+
+2024-07-30 22:55:46,664 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 54999
+sequenceNum: 0
+ACKBit: True
+ACKNum: 9
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 57014
+
+2024-07-30 22:55:46,664 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 54999
+sequenceNum: 0
+ACKBit: True
+ACKNum: 10
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 57015
+
+2024-07-30 22:55:46,665 INFO: Sent a packet:
+sourcePort: 2000
+destPort: 54999
+sequenceNum: 0
+ACKBit: True
+ACKNum: 11
+SYNBit: False
+FINBit: False
+rwnd: 5
+data: 
+checksum: 57016
+
+Connection Closed. Final String Received: AAAAAAAAAABBBBBBBBBBCCCCCCCCCCDDDDDDDDDDEEEEEEEEEEFFFFFFFFFFGGGGGGGGGGHHHHHHHHHHIIIIIIIIIIJJJJJJJJJJKKKKKKKKKK

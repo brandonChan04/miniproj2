@@ -1,0 +1,168 @@
+2024-07-30 22:55:46,658 INFO: Sent a packet:
+sourcePort: 54999
+destPort: 2000
+sequenceNum: 0
+ACKBit: False
+ACKNum: None
+SYNBit: True
+FINBit: False
+rwnd: 0
+data: None
+checksum: 57000
+
+2024-07-30 22:55:46,659 INFO: Sent a packet:
+sourcePort: 54999
+destPort: 2000
+sequenceNum: 1
+ACKBit: True
+ACKNum: 1
+SYNBit: False
+FINBit: False
+rwnd: 0
+data: None
+checksum: 57002
+
+2024-07-30 22:55:46,659 INFO: Sent a packet:
+sourcePort: 54999
+destPort: 2000
+sequenceNum: 0
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 0
+data: AAAAAAAAAA
+checksum: 57649
+
+2024-07-30 22:55:46,660 INFO: Sent a packet:
+sourcePort: 54999
+destPort: 2000
+sequenceNum: 1
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 0
+data: BBBBBBBBBB
+checksum: 57660
+
+2024-07-30 22:55:46,660 INFO: Sent a packet:
+sourcePort: 54999
+destPort: 2000
+sequenceNum: 2
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 0
+data: CCCCCCCCCC
+checksum: 57671
+
+2024-07-30 22:55:46,661 INFO: Sent a packet:
+sourcePort: 54999
+destPort: 2000
+sequenceNum: 3
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 0
+data: DDDDDDDDDD
+checksum: 57682
+
+2024-07-30 22:55:46,662 INFO: Sent a packet:
+sourcePort: 54999
+destPort: 2000
+sequenceNum: 4
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 0
+data: EEEEEEEEEE
+checksum: 57693
+
+2024-07-30 22:55:46,662 INFO: Sent a packet:
+sourcePort: 54999
+destPort: 2000
+sequenceNum: 5
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 0
+data: FFFFFFFFFF
+checksum: 57704
+
+2024-07-30 22:55:46,663 INFO: Sent a packet:
+sourcePort: 54999
+destPort: 2000
+sequenceNum: 6
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 0
+data: GGGGGGGGGG
+checksum: 57715
+
+2024-07-30 22:55:46,663 INFO: Sent a packet:
+sourcePort: 54999
+destPort: 2000
+sequenceNum: 7
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 0
+data: HHHHHHHHHH
+checksum: 57726
+
+2024-07-30 22:55:46,664 INFO: Sent a packet:
+sourcePort: 54999
+destPort: 2000
+sequenceNum: 8
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 0
+data: IIIIIIIIII
+checksum: 57737
+
+2024-07-30 22:55:46,664 INFO: Sent a packet:
+sourcePort: 54999
+destPort: 2000
+sequenceNum: 9
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 0
+data: JJJJJJJJJJ
+checksum: 57748
+
+2024-07-30 22:55:46,665 INFO: Sent a packet:
+sourcePort: 54999
+destPort: 2000
+sequenceNum: 10
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: False
+rwnd: 0
+data: KKKKKKKKKK
+checksum: 57759
+
+2024-07-30 22:55:46,665 INFO: Sent a packet:
+sourcePort: 54999
+destPort: 2000
+sequenceNum: 11
+ACKBit: False
+ACKNum: None
+SYNBit: False
+FINBit: True
+rwnd: 0
+data: None
+checksum: 57011
+

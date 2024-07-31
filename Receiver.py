@@ -68,6 +68,7 @@ class Receiver:
                 if decoded_segment.FINBit:
                     # Set all loop values to defaults
                     logging.debug(f"Received FINBit. Final data received: {self.received_data}")
+                    print(f"Connection Closed. Final String Received: {''.join(self.received_data)}")
                     self.received_data = []
                     self.expected_seq_num = 0
                     continue
