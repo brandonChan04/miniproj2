@@ -73,4 +73,19 @@ class Segment:
         print(f'rwnd: {self.rwnd}')
         print(f'data: {self.data}')
         print(f'checksum: {self.checksum}')
+
+    def to_string(self):
+        out = ''
+        out += f'sourcePort: {self.sourcePort}\n'
+        out += f'destPort: {self.destPort}\n'
+        out += f'sequenceNum: {self.sequenceNum}\n'
+        out += f'ACKBit: {self.ACKBit}\n'
+        out += f'ACKNum: {self.ACKNum}\n'
+        out += f'SYNBit: {self.SYNBit}\n'
+        out += f'FINBit: {self.FINBit}\n'
+        out += f'rwnd: {self.rwnd}\n'
+        out += f'data: {self.data}\n'
+        out += f'checksum: {self.checksum}\n'
+
+        return out
     

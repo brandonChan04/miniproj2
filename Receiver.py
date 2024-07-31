@@ -6,8 +6,10 @@ import random
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
 
+logging.getLogger().setLevel(logging.INFO)
+
 class Receiver:
-    def __init__(self, receiver_port=2000, MSS=10, loss_prob=0.1, corruption_prob=0.1):
+    def __init__(self, receiver_port=2000, MSS=10, loss_prob=0.1, corruption_prob=0.1, buffer_size = 5):
         self.receiver_port = receiver_port
         self.MSS = MSS
         self.socket = socket(AF_INET, SOCK_DGRAM)
@@ -17,6 +19,7 @@ class Receiver:
 
         self.expected_seq_num = 0
         self.received_data = []
+        self.buffer_size = buffer_size
 
         logging.debug(f"Receiver listening on port {receiver_port}")
 
@@ -45,6 +48,7 @@ class Receiver:
                     )
                     encoded = encode_segment(SYNACK)
                     self.socket.sendto(encoded, sender_address)
+                    logging.info(f"Sent a packet:\n{SYNACK.to_string()}")
                     logging.debug("Sent SYNACK")
 
                     receivedACK = False
@@ -96,13 +100,14 @@ class Receiver:
                     ACKNum=ACKNum,
                     SYNBit=False,
                     FINBit=False,
-                    rwnd=0,
+                    rwnd=self.buffer_size,
                     data=''
                 )
                 encoded_ack = encode_segment(ack_segment)
                 # Random chance of loss
                 if random.random() >= self.loss_prob:
                     self.socket.sendto(encoded_ack, sender_address) # SEND ACK
+                    logging.info(f"Sent a packet:\n{ack_segment.to_string()}")
                     logging.debug(f"Sent ACK for segment {self.expected_seq_num - 1}")
 
                 else:
@@ -115,5 +120,5 @@ class Receiver:
         self.socket.close()
 
 if __name__ == '__main__':
-    receiver = Receiver()
+    receiver = Receiver(loss_prob=0, corruption_prob=0, buffer_size=5)
     receiver.receive()

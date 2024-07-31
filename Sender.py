@@ -5,6 +5,7 @@ from utils import *
 import logging
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
+logging.getLogger().setLevel(logging.INFO)
 
 # Sender Class
 class Sender:
@@ -46,6 +47,7 @@ class Sender:
 
         encoded = encode_segment(SYN_Segment)
         self.socket.sendto(encoded, (self.receiver_ip, self.receiver_port))
+        logging.info(f"Sent a packet:\n{SYN_Segment.to_string()}")
 
         SYN_ACKed = False
         while not SYN_ACKed:
@@ -81,6 +83,7 @@ class Sender:
 
                 encoded = encode_segment(SYN_Segment)
                 self.socket.sendto(encoded, (self.receiver_ip, self.receiver_port)) 
+                logging.info(f"Sent a packet:\n{SYN_Segment.to_string()}")
                 logging.debug("SYN Timed out. sending again.")
 
         # ACK the establishment 
@@ -99,6 +102,7 @@ class Sender:
 
         encoded = encode_segment(ACK_Segment)
         self.socket.sendto(encoded, (self.receiver_ip, self.receiver_port))
+        logging.info(f"Sent a packet:\n{ACK_Segment.to_string()}")
 
         self.sequenceNum = 0
 
@@ -166,6 +170,7 @@ class Sender:
                 # lose the packet with random prob.
                 if random.random() >= self.loss_prob:
                     self.socket.sendto(encoded, (self.receiver_ip, self.receiver_port))
+                    logging.info(f"Sent a packet:\n{p.to_string()}")
                 # p.print_segment()
                     logging.debug(f"Sent packet with seq # {p.sequenceNum}")
 
@@ -232,7 +237,8 @@ class Sender:
                         # logging.debug(f"Checkintg received {idx_of_last_packet}")
                         if ack_received[idx_of_last_packet]:
                             all_acked = True
-                            window_size += 1
+                            logging.debug(f"Increasing window size to the smaller of: {window_size + 1}, receiver_buffer: {ack_segment.rwnd}")
+                            window_size = min(window_size+1, ack_segment.rwnd)
 
             except timeout:
                 window_size = max(1, window_size // 2)
@@ -248,8 +254,9 @@ class Sender:
             SYNBit=False,
             FINBit=True,
             rwnd=0,
-            data=data
+            data=None
         )
         encoded = encode_segment(FIN)
         self.socket.sendto(encoded, (self.receiver_ip, self.receiver_port))
+        logging.info(f"Sent a packet:\n{FIN.to_string()}")
         logging.debug("Transfer finished, sending FIN")
